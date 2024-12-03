@@ -9,6 +9,10 @@ export default {
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: 'centered',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/bggknJrC6bRFYFiyypPW0t/BDS-BlackVue-Design-System-Resource-2023?node-id=16790-15193&t=NMa9RFOKShgwYwLM-4'
+    },
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -26,6 +30,7 @@ export const Primary = {
     primary: true,
     label: 'Button',
   },
+  
 };
 
 export const Secondary = {

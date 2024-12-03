@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_dcf869e4617958d"
   },
   "keywords": [],
   "author": "",
@@ -13,17 +14,20 @@
   "description": "",
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
-    "@storybook/addon-essentials": "^8.4.5",
-    "@storybook/addon-interactions": "^8.4.5",
+    "@storybook/addon-essentials": "^8.4.6",
+    "@storybook/addon-interactions": "^8.4.6",
+    "@storybook/addon-links": "^8.4.6",
     "@storybook/addon-onboarding": "^8.4.5",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/addons": "^8.4.6",
+    "@storybook/api": "^8.4.6",
     "@storybook/blocks": "^8.4.5",
-    "@storybook/react": "^8.4.5",
-    "@storybook/react-webpack5": "^8.4.5",
-    "@storybook/test": "^8.4.5",
+    "@storybook/react": "^8.4.6",
+    "@storybook/react-webpack5": "^8.4.6",
+    "@storybook/test": "^8.4.6",
     "chromatic": "^11.19.0",
     "prop-types": "^15.8.1",
     "storybook": "^8.4.5",
-    "storybook-addon-designs": "^6.3.1"
+    "storybook-addon-designs": "^8.4.6"
   }
 }
