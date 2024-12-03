@@ -11,13 +11,10 @@ const config = {
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-interactions",
-
     "@storybook/addon-onboarding",
-    
     "@storybook/addon-essentials",
     "@storybook/addon-links",
     "storybook-addon-designs",
-
     "@chromatic-com/storybook",
   ],
   

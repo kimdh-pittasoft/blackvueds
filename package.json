@@ -19,8 +19,8 @@
     "@storybook/addon-links": "^8.4.6",
     "@storybook/addon-onboarding": "^8.4.5",
     "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
-    "@storybook/addons": "^8.4.6",
-    "@storybook/api": "^8.4.6",
+    "@storybook/addons": "^7.6.17",
+    "@storybook/api": "^7.6.17",
     "@storybook/blocks": "^8.4.5",
     "@storybook/react": "^8.4.6",
     "@storybook/react-webpack5": "^8.4.6",
@@ -28,6 +28,6 @@
     "chromatic": "^11.19.0",
     "prop-types": "^15.8.1",
     "storybook": "^8.4.5",
-    "storybook-addon-designs": "^8.4.6"
+    "storybook-addon-designs": "^6.3.1"
   }
 }
