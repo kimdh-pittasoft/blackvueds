@@ -1,26 +1,30 @@
 
 > storybook@1.0.0 build-storybook
-> storybook build --output-dir=/var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--97583-CkIlQxnJxrMA
+> storybook build --output-dir=/var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--31603-dqD7Pkla5NP5
 
-[1m@storybook/core v8.4.5
+[1m@storybook/core v8.4.7
 [22m
-info => Cleaning outputDir: [36m../../../var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--97583-CkIlQxnJxrMA[39m
+info => Cleaning outputDir: [36m../../../var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--31603-dqD7Pkla5NP5[39m
 info => Loading presets
-WARN Could not resolve addon "@storybook/addon-links", skipping. Is it installed?
-WARN Could not resolve addon "@storybook/addon-links", skipping. Is it installed?
 info => Building manager..
-[38;2;241;97;97mError: Build failed with 3 errors:
-node_modules/storybook-addon-designs/esm/register/containers/Wrapper.js:2:48: ERROR: Could not resolve "@storybook/api"
-node_modules/storybook-addon-designs/esm/register/index.js:1:30: ERROR: Could not resolve "@storybook/addons"
-node_modules/storybook-addon-designs/esm/register/index.js:2:29: ERROR: Could not resolve "@storybook/api"[39m
-    at failureErrorWithLog (./node_modules/esbuild/lib/main.js:1476:15)
-    at ./node_modules/esbuild/lib/main.js:945:25
-    at runOnEndCallbacks (./node_modules/esbuild/lib/main.js:1316:45)
-    at buildResponseToResult (./node_modules/esbuild/lib/main.js:943:7)
-    at ./node_modules/esbuild/lib/main.js:970:16
-    at responseCallbacks.<computed> (./node_modules/esbuild/lib/main.js:622:9)
-    at handleIncomingPacket (./node_modules/esbuild/lib/main.js:677:12)
-    at Socket.readFromStdout (./node_modules/esbuild/lib/main.js:600:7)
-    at Socket.emit (node:events:513:28)
-    at addChunk (node:internal/streams/readable:559:12)
-WARN Could not resolve addon "@storybook/addon-links", skipping. Is it installed?
+info => Manager built ([38;2;181;126;229m85 ms[39m)
+info => Building preview..
+info Addon-docs: using MDX3
+info => Using implicit CSS loaders
+info => Using default Webpack5 setup
+WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+WARN This can impact web performance.
+WARN Assets: 
+WARN   static/media/addon-library.7a58d2cb.png (456 KiB)
+WARN   844.2429ce8c.iframe.bundle.js (1000 KiB)
+WARN   735.e807291b.iframe.bundle.js (357 KiB)
+WARN   848.27742357.iframe.bundle.js (1.28 MiB)
+WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+WARN Entrypoints:
+WARN   main (1.3 MiB)
+WARN       runtime~main.543bec20.iframe.bundle.js
+WARN       848.27742357.iframe.bundle.js
+WARN       main.271158bd.iframe.bundle.js
+WARN 
+info => Preview built ([38;2;181;126;229m4.32 s[39m)
+info => Output directory: /var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--31603-dqD7Pkla5NP5
