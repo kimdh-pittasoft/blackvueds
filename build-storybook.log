@@ -1,30 +1,43 @@
 
 > storybook@1.0.0 build-storybook
-> storybook build --output-dir=/var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--31603-dqD7Pkla5NP5
+> storybook build --output-dir=/var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--5290-uC19qHF0w5nx
 
 [1m@storybook/core v8.4.7
 [22m
-info => Cleaning outputDir: [36m../../../var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--31603-dqD7Pkla5NP5[39m
+info => Cleaning outputDir: [36m../../../var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--5290-uC19qHF0w5nx[39m
 info => Loading presets
 info => Building manager..
-info => Manager built ([38;2;181;126;229m85 ms[39m)
+info => Manager built ([38;2;181;126;229m128 ms[39m)
 info => Building preview..
 info Addon-docs: using MDX3
 info => Using implicit CSS loaders
 info => Using default Webpack5 setup
-WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
-WARN This can impact web performance.
-WARN Assets: 
-WARN   static/media/addon-library.7a58d2cb.png (456 KiB)
-WARN   844.2429ce8c.iframe.bundle.js (1000 KiB)
-WARN   735.e807291b.iframe.bundle.js (357 KiB)
-WARN   848.27742357.iframe.bundle.js (1.28 MiB)
-WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
-WARN Entrypoints:
-WARN   main (1.3 MiB)
-WARN       runtime~main.543bec20.iframe.bundle.js
-WARN       848.27742357.iframe.bundle.js
-WARN       main.271158bd.iframe.bundle.js
-WARN 
-info => Preview built ([38;2;181;126;229m4.32 s[39m)
-info => Output directory: /var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--31603-dqD7Pkla5NP5
+[38;2;241;97;97m=> Failed to build the preview[39m
+[38;2;241;97;97mSB_BUILDER-WEBPACK5_0002 (WebpackInvocationError): Module not found: Error: [CaseSensitivePathsPlugin] `./stories/Button.css` does not match the corresponding path on disk `button.css`.[39m
+    at ./node_modules/@storybook/builder-webpack5/dist/index.js:1:24769
+    at ./node_modules/webpack/lib/HookWebpackError.js:67:2
+    at Hook.eval [as callAsync] (eval at create (./node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:11:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (./node_modules/tapable/lib/Hook.js:18:14)
+    at Cache.shutdown (./node_modules/webpack/lib/Cache.js:154:23)
+    at ./node_modules/webpack/lib/Compiler.js:1379:15
+    at Hook.eval [as callAsync] (eval at create (./node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:6:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (./node_modules/tapable/lib/Hook.js:18:14)
+    at Compiler.close (./node_modules/webpack/lib/Compiler.js:1372:23)
+    at ./node_modules/@storybook/builder-webpack5/dist/index.js:1:24754
+    at finalCallback (./node_modules/webpack/lib/Compiler.js:500:32)
+    at onCompiled (./node_modules/webpack/lib/Compiler.js:514:20)
+    at ./node_modules/webpack/lib/Compiler.js:1327:21
+    at eval (eval at create (./node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:32:1)
+    at ./node_modules/webpack/lib/EntryPlugin.js:47:5
+    at ./node_modules/webpack/lib/Compilation.js:2303:13
+    at ./node_modules/webpack/lib/Compilation.js:2192:6
+    at ./node_modules/webpack/lib/Compilation.js:2055:13
+    at ./node_modules/webpack/lib/util/AsyncQueue.js:389:5
+    at Hook.eval [as callAsync] (eval at create (./node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:15:1)
+    at AsyncQueue._handleResult (./node_modules/webpack/lib/util/AsyncQueue.js:359:21)
+    at ./node_modules/webpack/lib/util/AsyncQueue.js:342:11
+    at onTransitiveTasksFinished (./node_modules/webpack/lib/Compilation.js:1562:20)
+    at ./node_modules/webpack/lib/Compilation.js:1548:7
+    at ./node_modules/webpack/lib/Compilation.js:2055:13
+    at ./node_modules/webpack/lib/util/AsyncQueue.js:381:6
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)

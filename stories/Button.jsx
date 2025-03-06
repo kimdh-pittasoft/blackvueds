@@ -1,40 +1,79 @@
+// Button.jsx
 import React from 'react';
-
 import PropTypes from 'prop-types';
+import './Button.css';
 
-import './button.css';
+export const Button = ({ 
+  primary, 
+  variant, 
+  size, 
+  label, 
+  icon, 
+  iconPosition, 
+  disabled, 
+  loading, 
+  onClick,
+  className, 
+  theme
+}) => {
+  // 색상 변형에 따른 클래스
+  const variantClass = variant ? `btn-${variant}` : primary ? 'btn-primary' : 'btn-default';
+  
+  // 크기에 따른 클래스
+  const sizeClass = size ? `btn-${size}` : 'btn-md';
+  
+  // 테마에 따른 클래스
+  const themeClass = theme === 'dark' ? 'theme-dark' : 'theme-light';
+  
+  // 상태에 따른 클래스
+  const stateClass = loading ? 'btn-loading' : disabled ? 'btn-disabled' : '';
+  
+  // 아이콘 위치에 따른 클래스
+  const iconClass = icon ? (iconPosition === 'right' ? 'icon-right' : 'icon-left') : '';
 
-/** Primary UI component for user interaction */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
+      className={`btn ${variantClass} ${sizeClass} ${themeClass} ${stateClass} ${iconClass} ${className || ''}`}
+      disabled={disabled || loading}
+      onClick={onClick}
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
     >
-      {label}
+      {loading ? (
+        <span className="spinner"></span>
+      ) : (
+        <>
+          {icon && iconPosition !== 'right' && <span className="btn-icon">{icon}</span>}
+          {label && <span className="btn-text">{label}</span>}
+          {icon && iconPosition === 'right' && <span className="btn-icon">{icon}</span>}
+        </>
+      )}
     </button>
   );
 };
 
 Button.propTypes = {
-  /** Is this the principal call to action on the page? */
   primary: PropTypes.bool,
-  /** What background color to use */
-  backgroundColor: PropTypes.string,
-  /** How large should the button be? */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /** Button contents */
-  label: PropTypes.string.isRequired,
-  /** Optional click handler */
+  variant: PropTypes.oneOf(['primary', 'danger', 'success', 'warning', 'info', 'purple']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  label: PropTypes.string,
+  icon: PropTypes.node,
+  iconPosition: PropTypes.oneOf(['left', 'right']),
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
   onClick: PropTypes.func,
+  className: PropTypes.string,
+  theme: PropTypes.oneOf(['light', 'dark'])
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
   primary: false,
-  size: 'medium',
+  size: 'md',
+  disabled: false,
+  loading: false,
+  iconPosition: 'left',
   onClick: undefined,
+  className: '',
+  theme: 'light'
 };
+
+export default Button;
