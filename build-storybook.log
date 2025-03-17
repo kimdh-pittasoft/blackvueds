@@ -1,19 +1,19 @@
 
 > storybook@1.0.0 build-storybook
-> storybook build --output-dir=/var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--5290-uC19qHF0w5nx
+> storybook build --output-dir=/var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--75263-aSU9SJsoQkFF
 
 [1m@storybook/core v8.4.7
 [22m
-info => Cleaning outputDir: [36m../../../var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--5290-uC19qHF0w5nx[39m
+info => Cleaning outputDir: [36m../../../var/folders/y3/d71gf45j2yz0g39336gy3pl40000gn/T/chromatic--75263-aSU9SJsoQkFF[39m
 info => Loading presets
 info => Building manager..
-info => Manager built ([38;2;181;126;229m128 ms[39m)
+info => Manager built ([38;2;181;126;229m127 ms[39m)
 info => Building preview..
 info Addon-docs: using MDX3
 info => Using implicit CSS loaders
 info => Using default Webpack5 setup
 [38;2;241;97;97m=> Failed to build the preview[39m
-[38;2;241;97;97mSB_BUILDER-WEBPACK5_0002 (WebpackInvocationError): Module not found: Error: [CaseSensitivePathsPlugin] `./stories/Button.css` does not match the corresponding path on disk `button.css`.[39m
+[38;2;241;97;97mSB_BUILDER-WEBPACK5_0002 (WebpackInvocationError): Module not found: Error: [CaseSensitivePathsPlugin] `./stories/header.css` does not match the corresponding path on disk `Header.css`.[39m
     at ./node_modules/@storybook/builder-webpack5/dist/index.js:1:24769
     at ./node_modules/webpack/lib/HookWebpackError.js:67:2
     at Hook.eval [as callAsync] (eval at create (./node_modules/tapable/lib/HookCodeFactory.js:33:10), <anonymous>:11:1)
