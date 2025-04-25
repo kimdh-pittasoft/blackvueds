@@ -3,7 +3,8 @@ name: Deploy Storybook to GitHub Pages
 on:
   push:
     branches:
-      - main # 또는 master
+      - main
+      - master
 
 permissions:
   contents: read
@@ -13,6 +14,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v3
 
