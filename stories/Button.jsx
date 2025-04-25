@@ -1,4 +1,3 @@
-
 import React from "react";
 import "./Button.css";
 import { FiSettings, FiRefreshCcw } from "react-icons/fi";
@@ -25,5 +24,6 @@ const Button = ({
   );
 };
 
+export { Button };
 export default Button;
 
