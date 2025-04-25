@@ -1,29 +1,105 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./Button.css";
-import { FiSettings, FiRefreshCcw } from "react-icons/fi";
 
-const Button = ({
-  label = "Button",
-  color = "blue",
+/**
+ * Primary UI component for user interaction
+ */
+export const Button = ({
   variant = "filled",
+  color = "primary",
   size = "medium",
-  leftIcon = false,
-  rightIcon = false,
+  label,
+  leftIcon,
+  rightIcon,
   disabled = false,
   loading = false,
+  onClick,
+  ...props
 }) => {
+  const baseClassName = "btn";
+  const className = [
+    baseClassName,
+    `btn-${variant}`,
+    `btn-${color}`,
+    `btn-${size}`,
+    disabled ? "btn-disabled" : "",
+    loading ? "btn-loading" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <button
-      className={`btn ${color} ${variant} ${size} ${disabled ? "disabled" : ""}`}
+      type="button"
+      className={className}
       disabled={disabled || loading}
+      onClick={onClick}
+      {...props}
     >
-      {leftIcon && !loading && <FiSettings className="icon left-icon" />}
-      {loading ? <FiRefreshCcw className="icon spin" /> : label}
-      {rightIcon && !loading && <FiSettings className="icon right-icon" />}
+      {loading && (
+        <span className="btn-spinner" aria-hidden="true">
+          &#8203;
+        </span>
+      )}
+      {!loading && leftIcon && (
+        <span className="btn-icon btn-icon-left material-icons">{leftIcon}</span>
+      )}
+      <span className="btn-label">{label}</span>
+      {!loading && rightIcon && (
+        <span className="btn-icon btn-icon-right material-icons">{rightIcon}</span>
+      )}
     </button>
   );
 };
 
-export { Button };
+Button.propTypes = {
+  /**
+   * Button variant
+   */
+  variant: PropTypes.oneOf(["filled", "outlined", "text"]),
+  /**
+   * Button color scheme
+   */
+  color: PropTypes.oneOf(["primary", "secondary", "danger"]),
+  /**
+   * Button size
+   */
+  size: PropTypes.oneOf(["small", "medium", "large"]),
+  /**
+   * Button contents
+   */
+  label: PropTypes.string.isRequired,
+  /**
+   * Left icon (Material Icons)
+   */
+  leftIcon: PropTypes.string,
+  /**
+   * Right icon (Material Icons)
+   */
+  rightIcon: PropTypes.string,
+  /**
+   * Disabled state
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Loading state
+   */
+  loading: PropTypes.bool,
+  /**
+   * Optional click handler
+   */
+  onClick: PropTypes.func,
+};
+
+Button.defaultProps = {
+  variant: "filled",
+  color: "primary",
+  size: "medium",
+  disabled: false,
+  loading: false,
+  onClick: undefined,
+};
+
 export default Button;
 
