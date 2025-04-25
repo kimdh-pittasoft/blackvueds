@@ -16,7 +16,7 @@ const config = {
   staticDirs: ['../public'],
   viteFinal: async (config, { configType }) => {
     if (configType === 'PRODUCTION') {
-      config.base = '/storybook/';
+      config.base = '/blackvueds/';
     }
     return config;
   },
