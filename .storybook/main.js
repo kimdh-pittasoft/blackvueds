@@ -13,6 +13,13 @@ const config = {
   docs: {
     autodocs: 'tag',
   },
+  staticDirs: ['../public'],
+  viteFinal: async (config, { configType }) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '/storybook/';
+    }
+    return config;
+  },
 };
 
 export default config;

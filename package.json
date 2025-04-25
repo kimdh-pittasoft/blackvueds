@@ -2,6 +2,7 @@
   "name": "storybook",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://kimdh.github.io/storybook",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +18,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "eslintConfig": {
     "extends": [
@@ -39,16 +42,17 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.6.17",
-    "@storybook/addon-interactions": "^7.6.17",
-    "@storybook/addon-links": "^7.6.17",
-    "@storybook/blocks": "^7.6.17",
+    "@storybook/addon-essentials": "^7.6.20",
+    "@storybook/addon-interactions": "^7.6.20",
+    "@storybook/addon-links": "^7.6.20",
+    "@storybook/blocks": "^7.6.20",
     "@storybook/preset-create-react-app": "^7.6.17",
-    "@storybook/react": "^7.6.17",
-    "@storybook/react-webpack5": "^7.6.17",
-    "@storybook/test": "^7.6.17",
+    "@storybook/react": "^7.6.20",
+    "@storybook/react-webpack5": "^7.6.20",
+    "@storybook/test": "^7.6.20",
     "eslint-plugin-storybook": "^0.8.0",
+    "gh-pages": "^6.3.0",
     "prop-types": "^15.8.1",
-    "storybook": "^7.6.17"
+    "storybook": "^7.6.20"
   }
 }

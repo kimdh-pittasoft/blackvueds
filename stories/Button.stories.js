@@ -34,131 +34,215 @@ const meta = {
 
 export default meta;
 
-// Default story
-export const Default = {
+// Base configuration for each variant
+const baseArgs = {
+  label: 'Button',
+  size: 'medium',
+};
+
+// Filled Buttons
+export const FilledDefault = {
   args: {
-    label: 'Button',
-    color: 'primary',
+    ...baseArgs,
     variant: 'filled',
-    size: 'medium',
-  },
-};
-
-// Color variants
-export const Primary = {
-  args: {
-    ...Default.args,
     color: 'primary',
   },
 };
 
-export const Secondary = {
+export const FilledPrimary = {
   args: {
-    ...Default.args,
+    ...FilledDefault.args,
+    color: 'primary',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+export const FilledSecondary = {
+  args: {
+    ...FilledDefault.args,
     color: 'secondary',
   },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
 };
 
-export const Danger = {
+export const FilledDanger = {
   args: {
-    ...Default.args,
+    ...FilledDefault.args,
     color: 'danger',
   },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
 };
 
-export const Violet = {
+export const FilledViolet = {
   args: {
-    ...Default.args,
+    ...FilledDefault.args,
     color: 'violet',
   },
-};
-
-// Style variants
-export const Filled = {
-  args: {
-    ...Default.args,
-    variant: 'filled',
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
   },
 };
 
-export const Outlined = {
+// Outlined Buttons
+export const OutlinedDefault = {
   args: {
-    ...Default.args,
+    ...baseArgs,
     variant: 'outlined',
+    color: 'primary',
   },
 };
 
-export const Text = {
+export const OutlinedPrimary = {
   args: {
-    ...Default.args,
-    variant: 'text',
+    ...OutlinedDefault.args,
+    color: 'primary',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
   },
 };
+
+export const OutlinedSecondary = {
+  args: {
+    ...OutlinedDefault.args,
+    color: 'secondary',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+export const OutlinedDanger = {
+  args: {
+    ...OutlinedDefault.args,
+    color: 'danger',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+export const OutlinedViolet = {
+  args: {
+    ...OutlinedDefault.args,
+    color: 'violet',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+// Text Buttons
+export const TextDefault = {
+  args: {
+    ...baseArgs,
+    variant: 'text',
+    color: 'primary',
+  },
+};
+
+export const TextPrimary = {
+  args: {
+    ...TextDefault.args,
+    color: 'primary',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+export const TextSecondary = {
+  args: {
+    ...TextDefault.args,
+    color: 'secondary',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+export const TextDanger = {
+  args: {
+    ...TextDefault.args,
+    color: 'danger',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+export const TextViolet = {
+  args: {
+    ...TextDefault.args,
+    color: 'violet',
+  },
+  parameters: {
+    controls: { exclude: ['variant', 'color'] },
+  },
+};
+
+// States for each variant
+const createStateStories = (baseStory, name) => ({
+  [`${name}Loading`]: {
+    args: {
+      ...baseStory.args,
+      loading: true,
+    },
+    parameters: {
+      controls: { exclude: ['variant', 'color'] },
+    },
+  },
+  [`${name}Disabled`]: {
+    args: {
+      ...baseStory.args,
+      disabled: true,
+    },
+    parameters: {
+      controls: { exclude: ['variant', 'color'] },
+    },
+  },
+});
+
+// Generate state stories for each variant
+export const {
+  FilledPrimaryLoading,
+  FilledPrimaryDisabled,
+} = createStateStories(FilledPrimary, 'FilledPrimary');
+
+export const {
+  OutlinedPrimaryLoading,
+  OutlinedPrimaryDisabled,
+} = createStateStories(OutlinedPrimary, 'OutlinedPrimary');
+
+export const {
+  TextPrimaryLoading,
+  TextPrimaryDisabled,
+} = createStateStories(TextPrimary, 'TextPrimary');
 
 // Sizes
-export const Small = {
-  args: {
-    ...Default.args,
-    size: 'small',
-  },
-};
-
-export const Medium = {
-  args: {
-    ...Default.args,
-    size: 'medium',
-  },
-};
-
-export const Large = {
-  args: {
-    ...Default.args,
-    size: 'large',
-  },
-};
-
-// States
-export const Disabled = {
-  args: {
-    ...Default.args,
-    disabled: true,
-  },
-};
-
-export const Loading = {
-  args: {
-    ...Default.args,
-    loading: true,
-  },
+export const Sizes = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <Button {...baseArgs} size="small" label="Small" />
+      <Button {...baseArgs} size="medium" label="Medium" />
+      <Button {...baseArgs} size="large" label="Large" />
+    </div>
+  ),
 };
 
 // Icons
-export const WithLeftIcon = {
-  args: {
-    ...Default.args,
-    leftIcon: 'settings',
-  },
-};
-
-export const WithRightIcon = {
-  args: {
-    ...Default.args,
-    rightIcon: 'arrow_forward',
-  },
-};
-
-export const WithBothIcons = {
-  args: {
-    ...Default.args,
-    leftIcon: 'settings',
-    rightIcon: 'arrow_forward',
-  },
-};
-
-// Box style
-export const BoxStyle = {
-  args: {
-    ...Default.args,
-    isBox: true,
-  },
+export const WithIcons = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+      <Button {...baseArgs} leftIcon="settings" label="Settings" />
+      <Button {...baseArgs} rightIcon="arrow_forward" label="Next" />
+      <Button {...baseArgs} leftIcon="settings" rightIcon="arrow_forward" label="Configure" />
+    </div>
+  ),
 };

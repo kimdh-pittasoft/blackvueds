@@ -9,47 +9,46 @@ export const Button = ({
   variant = "filled",
   color = "primary",
   size = "medium",
+  isBox = false,
   label,
   leftIcon,
   rightIcon,
   disabled = false,
   loading = false,
-  onClick,
-  className,
+  onClick = () => {},
   ...props
 }) => {
   const baseClassName = "btn";
-  const classes = [
+  const variantClassName = `btn-${variant}`;
+  const colorClassName = `btn-${color}`;
+  const sizeClassName = `btn-${size}`;
+  const boxClassName = isBox ? "btn-box" : "";
+  const loadingClassName = loading ? "loading" : "";
+  
+  const className = [
     baseClassName,
-    `btn-${variant}`,
-    `btn-${color}`,
-    `btn-${size}`,
-    disabled ? "btn-disabled" : "",
-    loading ? "btn-loading" : "",
-    className || ""
-  ]
-    .filter(Boolean)
-    .join(" ");
+    variantClassName,
+    colorClassName,
+    sizeClassName,
+    boxClassName,
+    loadingClassName,
+  ].filter(Boolean).join(" ");
 
   return (
     <button
       type="button"
-      className={classes}
+      className={className}
       disabled={disabled || loading}
       onClick={onClick}
       {...props}
     >
-      {loading && (
-        <span className="btn-spinner" aria-hidden="true">
-          &#8203;
-        </span>
-      )}
+      {loading && <span className="loading-spinner" />}
       {!loading && leftIcon && (
-        <span className="btn-icon btn-icon-left material-icons">{leftIcon}</span>
+        <span className="material-icons">{leftIcon}</span>
       )}
-      <span className="btn-label">{label}</span>
+      {!loading && <span>{label}</span>}
       {!loading && rightIcon && (
-        <span className="btn-icon btn-icon-right material-icons">{rightIcon}</span>
+        <span className="material-icons">{rightIcon}</span>
       )}
     </button>
   );
@@ -63,7 +62,7 @@ Button.propTypes = {
   /**
    * Button color scheme
    */
-  color: PropTypes.oneOf(["primary", "secondary", "danger"]),
+  color: PropTypes.oneOf(["primary", "secondary", "danger", "violet"]),
   /**
    * Button size
    */
@@ -93,19 +92,19 @@ Button.propTypes = {
    */
   onClick: PropTypes.func,
   /**
-   * Additional CSS class names
+   * Box style with larger border radius
    */
-  className: PropTypes.string,
+  isBox: PropTypes.bool,
 };
 
 Button.defaultProps = {
   variant: "filled",
   color: "primary",
   size: "medium",
+  isBox: false,
   disabled: false,
   loading: false,
-  onClick: undefined,
-  className: "",
+  onClick: () => {},
 };
 
 export default Button;
