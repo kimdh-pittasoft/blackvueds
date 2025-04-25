@@ -1,30 +1,274 @@
-.storybook-button {
-  display: inline-block;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+:root {
+  /* Light Theme Colors */
+  --primary-default: #0095E0;
+  --primary-hover: #007AB8;
+  --primary-pressed: #006194;
+  --primary-disabled: rgba(0, 149, 224, 0.3);
+  
+  --secondary-default: #FFFFFF;
+  --secondary-hover: #F5F5F5;
+  --secondary-pressed: #EBEBEB;
+  
+  --danger-default: #D81A26;
+  --danger-hover: #B0151F;
+  --danger-pressed: #8B1118;
+  
+  --disabled-bg: #BEBEC1;
+  --disabled-text: rgba(255, 255, 255, 0.7);
+  
+  --text-on-primary: #FFFFFF;
+  --text-on-light: #333333;
+}
+
+[data-theme='dark'] {
+  /* Dark Theme Colors */
+  --primary-default: #33AAEB;
+  --primary-hover: #5EBDEE;
+  --primary-pressed: #89CFF2;
+  --primary-disabled: rgba(51, 170, 235, 0.3);
+  
+  --secondary-default: #1A1A1A;
+  --secondary-hover: #333333;
+  --secondary-pressed: #4D4D4D;
+  
+  --danger-default: #FF3B47;
+  --danger-hover: #FF6B74;
+  --danger-pressed: #FF9BA1;
+  
+  --disabled-bg: #4D4D4D;
+  --disabled-text: rgba(255, 255, 255, 0.5);
+  
+  --text-on-primary: #FFFFFF;
+  --text-on-light: #FFFFFF;
+}
+
+.btn {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  border: 0;
-  border-radius: 3em;
-  font-weight: 700;
-  line-height: 1;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
 }
-.storybook-button--primary {
-  background-color: #ba1efd;
-  color: white;
-}
-.storybook-button--secondary {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  background-color: transparent;
-  color: #333;
-}
-.storybook-button--small {
-  padding: 10px 16px;
-  font-size: 12px;
-}
-.storybook-button--medium {
-  padding: 11px 20px;
+
+/* Sizes */
+.btn-small {
+  height: 32px;
+  padding: 0 16px;
   font-size: 14px;
 }
-.storybook-button--large {
-  padding: 12px 24px;
+
+.btn-medium {
+  height: 36px;
+  padding: 0 24px;
   font-size: 16px;
+}
+
+.btn-large {
+  height: 48px;
+  padding: 0 32px;
+  font-size: 18px;
+}
+
+/* Filled Variant */
+.btn-filled.btn-primary {
+  background-color: var(--primary-default);
+  color: var(--text-on-primary);
+}
+
+.btn-filled.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.btn-filled.btn-primary:active:not(:disabled) {
+  background-color: var(--primary-pressed);
+}
+
+.btn-filled.btn-secondary {
+  background-color: var(--secondary-default);
+  color: var(--primary-default);
+  border: 1px solid var(--primary-default);
+}
+
+.btn-filled.btn-secondary:hover:not(:disabled) {
+  background-color: var(--secondary-hover);
+}
+
+.btn-filled.btn-secondary:active:not(:disabled) {
+  background-color: var(--secondary-pressed);
+}
+
+.btn-filled.btn-danger {
+  background-color: var(--danger-default);
+  color: var(--text-on-primary);
+}
+
+.btn-filled.btn-danger:hover:not(:disabled) {
+  background-color: var(--danger-hover);
+}
+
+.btn-filled.btn-danger:active:not(:disabled) {
+  background-color: var(--danger-pressed);
+}
+
+/* Outlined Variant */
+.btn-outlined {
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+
+.btn-outlined.btn-primary {
+  color: var(--primary-default);
+  border-color: var(--primary-default);
+}
+
+.btn-outlined.btn-primary:hover:not(:disabled) {
+  background-color: rgba(0, 149, 224, 0.04);
+}
+
+.btn-outlined.btn-primary:active:not(:disabled) {
+  background-color: rgba(0, 149, 224, 0.08);
+}
+
+.btn-outlined.btn-secondary {
+  color: var(--text-on-light);
+  border-color: var(--text-on-light);
+}
+
+.btn-outlined.btn-secondary:hover:not(:disabled) {
+  background-color: rgba(102, 102, 102, 0.04);
+}
+
+.btn-outlined.btn-secondary:active:not(:disabled) {
+  background-color: rgba(102, 102, 102, 0.08);
+}
+
+.btn-outlined.btn-danger {
+  color: var(--danger-default);
+  border-color: var(--danger-default);
+}
+
+.btn-outlined.btn-danger:hover:not(:disabled) {
+  background-color: rgba(216, 26, 38, 0.04);
+}
+
+.btn-outlined.btn-danger:active:not(:disabled) {
+  background-color: rgba(216, 26, 38, 0.08);
+}
+
+/* Text Variant */
+.btn-text {
+  background-color: transparent;
+  padding: 0 8px;
+}
+
+.btn-text.btn-primary {
+  color: var(--primary-default);
+}
+
+.btn-text.btn-primary:hover:not(:disabled) {
+  background-color: rgba(0, 149, 224, 0.04);
+}
+
+.btn-text.btn-primary:active:not(:disabled) {
+  background-color: rgba(0, 149, 224, 0.08);
+}
+
+.btn-text.btn-secondary {
+  color: var(--text-on-light);
+}
+
+.btn-text.btn-secondary:hover:not(:disabled) {
+  background-color: rgba(102, 102, 102, 0.04);
+}
+
+.btn-text.btn-secondary:active:not(:disabled) {
+  background-color: rgba(102, 102, 102, 0.08);
+}
+
+.btn-text.btn-danger {
+  color: var(--danger-default);
+}
+
+.btn-text.btn-danger:hover:not(:disabled) {
+  background-color: rgba(216, 26, 38, 0.04);
+}
+
+.btn-text.btn-danger:active:not(:disabled) {
+  background-color: rgba(216, 26, 38, 0.08);
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn-disabled {
+  background-color: var(--disabled-bg) !important;
+  color: var(--disabled-text) !important;
+  border-color: transparent !important;
+  cursor: not-allowed;
+}
+
+/* Icons */
+.btn-icon {
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-small .btn-icon {
+  font-size: 16px;
+}
+
+.btn-large .btn-icon {
+  font-size: 20px;
+}
+
+/* Loading state */
+.btn-loading {
+  color: transparent !important;
+}
+
+.btn-spinner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-right-color: transparent;
+  animation: spin 0.75s linear infinite;
+}
+
+.btn-small .btn-spinner {
+  width: 16px;
+  height: 16px;
+  border-width: 1.5px;
+}
+
+.btn-large .btn-spinner {
+  width: 20px;
+  height: 20px;
+  border-width: 2.5px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

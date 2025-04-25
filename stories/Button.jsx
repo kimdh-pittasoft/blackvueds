@@ -15,16 +15,18 @@ export const Button = ({
   disabled = false,
   loading = false,
   onClick,
+  className,
   ...props
 }) => {
   const baseClassName = "btn";
-  const className = [
+  const classes = [
     baseClassName,
     `btn-${variant}`,
     `btn-${color}`,
     `btn-${size}`,
     disabled ? "btn-disabled" : "",
     loading ? "btn-loading" : "",
+    className || ""
   ]
     .filter(Boolean)
     .join(" ");
@@ -32,7 +34,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={className}
+      className={classes}
       disabled={disabled || loading}
       onClick={onClick}
       {...props}
@@ -90,6 +92,10 @@ Button.propTypes = {
    * Optional click handler
    */
   onClick: PropTypes.func,
+  /**
+   * Additional CSS class names
+   */
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -99,6 +105,7 @@ Button.defaultProps = {
   disabled: false,
   loading: false,
   onClick: undefined,
+  className: "",
 };
 
 export default Button;
